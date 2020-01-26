@@ -1,27 +1,53 @@
-# Angular8
+# Angular-routing-and-navigation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Getting Started - Local Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+To get started locally, follow these instructions:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. If you haven't done it already, [make a fork of this repo](https://github.com/angular/angular-cli/fork).
+1. Clone to your local computer using `git`.
+1. Make sure that you have Node 10.13 or later installed. See instructions [here](https://nodejs.org/en/download/).
 
-## Running unit tests
+## Building and Installing the CLI
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To make a local build:
 
-## Running end-to-end tests
+```shell
+yarn build --local
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+This generates a number of tarballs in the `dist/` directory. To actually use
+the locally built tools, switch to another repository reproducing the specific
+issue you want to fix (or just generate a local repo with `ng new`). Then
+install the locally built packages:
 
-## Further help
+```shell
+cd "${EXAMPLE_ANGULAR_PROJECT_REPO}"
+npm install -D ${CLI_REPO}/dist/*.tgz
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Builds of this example project will use tooling created from the previous local
+build and include any local changes. When using the CLI, it will automatically
+check for a local install and use that if present. This means you can just run:
+
+```shell
+npm install -g @angular/cli
+```
+
+to get a global install of the latest CLI release. Then running any `ng` command
+in the example project will automatically find and use the local build of the
+CLI.
+
+Note: If you are testing `ng update`, be aware that installing all the tarballs
+will also update the framework (`@angular/core`) to the latest version. In this
+case, simply install the CLI alone with
+`npm install -D ${CLI_REPO}/dist/_angular_cli.tgz`, that way the rest of the
+project remains to be upgraded with `ng update`.
